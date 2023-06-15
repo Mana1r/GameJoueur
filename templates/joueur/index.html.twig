@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JoueurController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+<h1>Player {{ id }} has been successfully added! ✅</h1>   <ul> <li>
+   name : {{nom}}</li><li>
+   email : {{email}}</li><li>
+   score: {{score}}</li><li>
+   born at : {{born_at}}</li>
+<li>
+<img src="{{ image.url }}" alt="{{ image.alt }}" height="100">
+</li>
+   </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Home!{% endblock %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style>
+  .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+             background-color: rgba(255, 255, 255, 0.5); 
+            overflow: hidden;}
+            td{
+                font-size:12px;
+                color:black;
+                font-weight:bold;
+            }
+            .container{
+                margin-top:80px;
+            }
+            .btn-warning {
+            background-color: #451242;
+            border-color: #451242;
+            margin-top: 15px;}
+            .sign-out-btn {
+                margin-left: 15px;
+            margin-top: 20px;
+            color:#fff
+        }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>List Players</h2>
+        <small><a href="{{ path('Ajouter') }}" class="btn btn-primary">ADD</a></small>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Born At</th>
+                <th>Score</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for j in joueurs %}
+            <tr>
+                <td>{{ j.id }}</td>
+                <td>{{ j.nom }}</td>
+                <td>{{ j.email }}</td>
+                <td>{{ j.getBornAt()|date('d/m/Y') }}</td>
+                <td>{{ j.score }}</td>
+                <td>
+                    {% if j.getImage() is not null %}
+                        <img src="{{ publicPath ~ j.getImage }}" height="100">
+                    {% endif %}
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('show_player', {'id': j.id }) }}">Details</a>
+                    <a class="btn btn-success" href="{{ path('update_player', {'id': j.id }) }}">Update</a>
+                    <a class="btn btn-danger" href="{{ path('delete_joueur', {'id': j.id }) }}"
+                       onclick="return confirm('Are you sure to delete! {{ j.nom }}')">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+  <a href="{{ path('app_admin') }}" class="btn btn-warning sign-out-btn">Home</a>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}{{ parent()|upper }} - {{ titre }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>.card {margin-top:60px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+             background-color: rgba(255, 255, 255, 0.5); 
+            overflow: hidden;}</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{ titre }}</h2>
+                    {{ form_start(f, {'attr': {'class': 'my-form-class'}}) }}
+                    <div class="form-group">
+                        {{ form_label(f.titre) }}
+                        {{ form_widget(f.titre, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(f.type) }}
+                        {{ form_widget(f.type, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(f.nbrJoueur) }}
+                        {{ form_widget(f.nbrJoueur, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(f.editeur) }}
+                        {{ form_widget(f.editeur, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(f.Image) }}
+                        {{ form_widget(f.Image, {'attr': {'class': 'form-control-file'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(f.Valider, {'attr': {'class': 'btn btn-primary'}}) }}
+                    </div>
+                    {{ form_end(f) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

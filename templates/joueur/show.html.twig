@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+    {{ parent()|upper }}:<br>
+    Player: {{ joueur.getNom() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+    .card {margin-top:60px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+             background-color: rgba(255, 255, 255, 0.5); 
+            overflow: hidden;}
+            h5{   font-size:12px;
+                color:#000;
+                font-weight:bold;}
+        .center-card {
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            overflow: hidden;
+        }
+        .player-image {
+            max-width: 200px;
+        }
+        .custom-card {
+            width: 400px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container center-card">
+    <div class="card custom-card">
+        <div class="card-body">
+            <h2 class="card-title">Name: {{ joueur.getNom() }}</h2>
+            <h5 class="card-subtitle mb-2 ">Email: {{ joueur.getEmail() }}</h5>
+            <h5 class="card-subtitle mb-2 ">Born at: {{ joueur.getBornAt()|date('Y-m-d') }}</h5>
+            <h5 class="card-subtitle mb-2 ">Score: {{ joueur.getScore() }}</h5>
+            {% if joueur.Image is not null %}
+                <img src="{{ publicPath ~ joueur.getImage }}" class="card-img-top img-fluid player-image" alt="Player Image">
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

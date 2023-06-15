@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .card-section {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .card-section .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-section img {
+            width: 100%;
+            object-fit: cover;
+            height: 200px;
+        }
+        .rectangle {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .btn-primary {
+            background-color: #451242;
+            border-color: #451242;
+            margin-top: 15px;
+        }
+        .card-title {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .sign-out-btn {
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="rectangle">
+                <div class="card-section">
+                    <div class="card">
+                        <h5 class="card-title text-center">Games Section</h5>
+                        <img src="{{ asset('assets/images/im.jpg') }}" alt="Games Image">
+                        <div class="card-footer">
+                            <a href="{{ path('find_allGames') }}" class="btn btn-primary">View All Games</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="rectangle">
+                <div class="card-section">
+                    <div class="card">
+                        <h5 class="card-title text-center">Players Section</h5>
+                        <img src="{{ asset('assets/images/valo2.png') }}" alt="Players Image">
+                        <div class="card-footer">
+                            <a href="{{ path('find_all') }}" class="btn btn-primary">View All Players</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{# <form action="{{ path('security_logout') }}" method="post">
+    <button type="submit" class="btn btn-primary sign-out-btn">Sign Out</button>
+</form> #}
+<a href="{{ path('security_logout') }}" class="btn btn-primary sign-out-btn">Sign Out</a>
+{% endblock %}

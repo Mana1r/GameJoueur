@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin: 2rem;
+   }
+   .text-center {
+    font-family: 'Roboto', sans-serif;
+
+    color:#ffffff;
+    background-color:#451242;
+    padding: 4rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    
+   }
+   h1:hover{
+    transition: 0.2s all ease-in-out;
+    color: #381245;
+    background: #ffffff;
+    text-shadow: 0 3px 23px rgb(18 44 69 / 40%);
+
+   }
+   /* app.css */
+
+.my-form-class {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.my-input-class {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.my-form-class label {
+  display: block;
+}
+
+.my-form-class input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
